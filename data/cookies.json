@@ -1,0 +1,8 @@
+{
+    "cookies": [
+        {
+            "name": "Theme",
+            "description": "Stores the theme that you select between pages and sessions"
+        }
+    ]
+}

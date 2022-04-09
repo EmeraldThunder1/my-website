@@ -1,4 +1,4 @@
-// 
+// Changed the theme by updating class names.
 
 function switchTheme (theme) {
     let elements = document.getElementsByTagName('*');
