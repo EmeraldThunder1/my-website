@@ -3,6 +3,10 @@
         {
             "name": "Theme",
             "description": "Stores the theme that you select between pages and sessions"
+        },
+        {
+            "name": "Consent",
+            "description": "Stores a cookie to record your options on this list"
         }
     ]
 }

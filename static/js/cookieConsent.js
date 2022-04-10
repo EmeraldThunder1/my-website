@@ -1,1 +1,0 @@
-// Updates preference page based on localstorage data
