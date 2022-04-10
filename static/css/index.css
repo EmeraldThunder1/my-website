@@ -69,6 +69,10 @@
     padding: 15px;
 }
 
+.button-padding {
+    padding: 5px;
+}
+
 .centre {
     text-align: center;
 }
@@ -119,4 +123,40 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+.green {
+    background-color: #00953c;
+}
+
+.red {
+    background-color: #ff0000;
+}
+
+.button-margin {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.no-outline {
+    outline: none;
+    border: 0;
+}
+
+.text-normal {
+    font-size: 0.5em;
+}
+
+.blue {
+    background-color: #00a0e9;
+}
+
+.popup-button-margin {
+    margin-left: 7px;
+    margin-right: 7px;
 }

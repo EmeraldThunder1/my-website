@@ -9,30 +9,44 @@
         <link rel="stylesheet" href="../static/css/index.css" type="text/css">
         <link rel="shortcut icon" href="../static/images/logo.png">
     </head>
-    <body class="no-pad noto-font height-100 light-colour light-background" onload="setTheme('light');">
+    <body class="no-pad noto-font height-100 light-colour light-background" onload="onLoad();">
         {%include "navbar.html"%}
+        {%include "popups/noscript.html"%}
         
         <div class="centre text-large popup-margin">
             Cookies
         </div>
         <div class="centre popup-margin">
             This site uses cookies to store information relevant to your experience. 
-            You have complete control over what we store, however disabling some may break a few unimportant site features.
+            You have complete control over what we store, however disabling some may break some site features.
         </div>
 
-        <form action="" method="post">
-            <!--TODO: Jinja cookie template-->
+        <span class="left green rounded button-padding button-margin button no-select" onclick="acceptAll();">Accept all</span>
+        <span class="right red rounded button-padding button-margin button no-select" onclick="rejectAll();">Reject all</span>
+
+        <br>
+
+        <form action="" method="post" id="-cookie-form">
+            <!--TODO: Accept/Reject all-->
+
             {%for cookie in cookies%}
             <div class="light-section centre rounded popup-margin popup-padding">
                 <div class="text-medium">
-                    {{cookie['name']}}
+                    {{cookie['name'].title()}}
+                    <input type="checkbox" name="{{cookie['name']}}"><br>
+                    <span class="text-normal">(Duration {{cookie['duration']}})</span>
                 </div>
                 {{cookie['description']}}
             </div>
             {%endfor%}
+
+            <div class="centre">
+                <input type="Submit" value="Submit" class="light-colour green no-outline rounded button-padding text-medium button">
+            </div>
         </form>
 
         <script src="../static/js/switchTheme.js"></script>
         <script src="../static/js/cookies.js"></script>
+        <script src="../static/js/index.js"></script>
     </body>
 </html>

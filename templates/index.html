@@ -9,15 +9,14 @@
         <link rel="stylesheet" href="../static/css/index.css" type="text/css">
         <link rel="shortcut icon" href="../static/images/logo.png">
     </head>
-    <body class="no-pad noto-font height-100 light-background" onload="setTheme('light');">
+    <body class="no-pad noto-font height-100 light-background light-colour" onload="onLoad()">
         {%include "navbar.html"%}
-        
-        <noscript>
-            <div class="light-nav popup-margin popup-padding centre rounded">
-                You appear to have javascript disabled, this may break some site features.
-            </div>
-        </noscript>
+        {%include "popups/noscript.html"%}
+        {%include "popups/cookieConsent.html"%}
+
         <!--TODO: Implement sections-->
         <script src="../static/js/switchTheme.js"></script>
+        <script src="../static/js/cookies.js"></script>
+        <script src="../static/js/index.js"></script>
     </body>
 </html>

@@ -8,6 +8,7 @@ function getCookie(cname) {
             return cookie.split('=')[1];
         }
     }
+    return null;
 }
 
 function setCookie(cname, cvalue, lifetime) {
@@ -19,4 +20,43 @@ function setCookie(cname, cvalue, lifetime) {
     document.cookie = cookie_string;
 
     console.log(getCookie(cname));
+}
+
+function acceptAll () {
+    let form = document.getElementById('-cookie-form');
+    for (let i of form.elements) {
+        if (i.type == 'checkbox') {
+            i.checked = true;
+        }
+    }
+
+    form.submit();
+}
+
+function rejectAll () {
+    let form = document.getElementById('-cookie-form');
+    for (let i of form.elements) {
+        if (i.type == 'checkbox') {
+            i.checked = false;
+        }
+    }
+
+    form.submit();
+}
+
+function hasConsented () {
+    cookie = getCookie('consent');
+    if (cookie == null) {return false;}
+    return true;
+}
+
+function popupVisibility () {
+    if (hasConsented()){
+        let popup = document.getElementById('-consent-popup');
+        if (popup == null) {
+            return;
+        }
+        console.log(popup)
+        popup.style.display = 'none';
+    }
 }

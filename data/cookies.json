@@ -1,12 +1,16 @@
 {
     "cookies": [
         {
-            "name": "Theme",
-            "description": "Stores the theme that you select between pages and sessions"
+            "name": "consent",
+            "description": "Stores a cookie to record your options on this list",
+            "duration": "2 weeks",
+            "necessary": true
         },
         {
-            "name": "Consent",
-            "description": "Stores a cookie to record your options on this list"
+            "name": "theme",
+            "description": "Stores the theme that you select between pages and sessions",
+            "duration": "2 weeks",
+            "necessary": false
         }
     ]
 }
