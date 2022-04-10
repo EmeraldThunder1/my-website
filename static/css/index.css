@@ -113,3 +113,10 @@
 .text-medium {
     font-size: 1.5em;
 }
+
+.no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
