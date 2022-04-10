@@ -22,9 +22,12 @@
 
         <form action="" method="post">
             <!--TODO: Jinja cookie template-->
+            {%for cookie in cookies%}
             <div class="light-section centre rounded popup-margin popup-padding">
-                Hello World!
+                <div class="text-medium">{{cookie['name']}}</div>
+                {{cookie['description']}}
             </div>
+            {%endfor%}
         </form>
 
         <script src="../static/js/switchTheme.js"></script>

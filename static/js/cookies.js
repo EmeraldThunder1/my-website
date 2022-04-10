@@ -15,7 +15,7 @@ function setCookie(cname, cvalue, lifetime) {
     d.setTime(d.getTime() + (lifetime * 24 * 60 * 60 * 1000));
     let expires = d.toUTCString();
 
-    let cookie_string = `${cname}=${cvalue};expires=${expires};SameSite=Lax;path=/`;
+    let cookie_string = `${cname}=${cvalue}; expires=${expires}; SameSite=Lax; path=/`;
     document.cookie = cookie_string;
 
     console.log(getCookie(cname));

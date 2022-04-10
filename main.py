@@ -9,6 +9,10 @@ def index():
 
 @app.route('/cookies/', methods=['GET', 'POST'])
 def cookies():
-    return render_template('cookies.html')
+    with open('data/cookies.json') as f:
+        data = json.load(f)
+        f.close()
+
+    return render_template('cookies.html', cookies=data['cookies'])
 
 app.run('localhost')
