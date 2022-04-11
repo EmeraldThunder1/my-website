@@ -18,15 +18,17 @@ def cookies():
         cookie_string = ''
         for _cookie in data['cookies']:
             cookie_string += str(int(True if request.form.get(_cookie['name']) == 'on' else False))
+
+        print(cookie_string)
         
         response = make_response(render_template('index.html'))
+
         
         if cookie_string[0] == '1':
             response.set_cookie('consent', cookie_string, expires=datetime.now() + timedelta(days=14))
 
         for i in range(len(cookie_string)):
             if cookie_string[i] == '0':
-                print(data['cookies'][i]['name'])
                 response.delete_cookie(data['cookies'][i]['name'])
 
         response.headers['location'] = url_for('index')

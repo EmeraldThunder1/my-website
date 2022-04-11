@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <div class="light-nav popup-margin popup-padding centre rounded no-select" id="-consent-popup">
-    This site uses cookies, press configure for more information or to select cookies to load
-    <span class="blue rounded button-padding popup-button-margin button no-select" onclick="acceptAll();">Accept all</span>
-    <span class="red rounded button-padding popup-button-margin button no-select" onclick="rejectAll();">Reject all</span>
+    This site uses cookies, press configure for more information or to select which cookies to save
+    <span class="blue rounded button-padding popup-button-margin button no-select">
+        <a href="javascript:acceptForm()" class="light-colour no-decoration">Accept all</a>
+    </span>
+    <span class="red rounded button-padding popup-button-margin button no-select">
+        <a href="javascript:declineForm()" class="light-colour no-decoration">Reject non-critical</a>
+    </span>
     <span class="blue rounded button-padding popup-button-margin button no-select">
         <a href="/cookies/" class="light-colour no-decoration">Configure</a>
     </span>

@@ -60,3 +60,66 @@ function popupVisibility () {
         popup.style.display = 'none';
     }
 }
+
+function postData(data) {
+    let xhr = new XMLHttpRequest();
+
+    let url = '/cookies/';
+
+    xhr.open('POST', url, true);
+
+    let headers = {
+        "Accept-Language": "en-GB,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded"
+    }
+
+    for (let key in headers) {
+        xhr.setRequestHeader(key, headers[key]);
+    }
+
+    let resp = xhr.send(data);
+}
+
+function acceptForm () {
+    data = fetchCookieData();
+    data.then(function (result) {
+        let cookies = result.cookies;
+
+        let cookieConsent = '';
+
+        for (let cookie of cookies) {
+            cookieConsent += `${cookie.name}=on&`;
+        }
+
+        postData(cookieConsent);
+    });
+
+    document.getElementById('-consent-popup').style.display = 'none';
+}
+
+function declineForm() {
+    data = fetchCookieData();
+    data.then(function (result) {
+        let cookies = result.cookies;
+
+        let cookieConsent = '';
+        for (let cookie of cookies) {
+            let name = cookie.name;
+
+            if (cookie.necessary) {
+                cookieConsent += `${name}=on&`;
+            }
+        }
+
+        postData(cookieConsent);
+    });
+
+    document.getElementById('-consent-popup').style.display = 'none';
+}
+
+async function fetchCookieData() {
+    let rawData = await fetch('/api/cookies/');
+    let cookieData = await rawData.json();
+
+    return cookieData;
+}
