@@ -1,6 +1,15 @@
 // Changed the theme by updating class names.
 
 function switchTheme (theme) {
+    let allowed = isAllowed('theme');
+    allowed.then(function (result) {
+        console.log(false)
+        if (result) {
+            console.log(true)
+            setCookie('theme', theme, 14);
+        }
+    })
+
     let elements = document.getElementsByTagName('*');
 
     for (var element in elements) {
@@ -22,7 +31,6 @@ function switchTheme (theme) {
 }
 
 function setTheme(theme) {
-    // TODO: Check local storage consent and then set that cookie
     let lightButton = document.getElementById('-theme-light');
     let darkButton = document.getElementById('-theme-dark');
 
@@ -34,5 +42,14 @@ function setTheme(theme) {
         switchTheme('dark');
         lightButton.style.display = 'block';
         darkButton.style.display = 'none';
+    }
+}
+
+function loadTheme() {
+    let theme = getCookie('theme');
+    if (theme == null) {
+        setTheme('light');
+    } else {
+        setTheme(theme);
     }
 }

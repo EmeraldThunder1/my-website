@@ -1,4 +1,4 @@
 function onLoad () {
     popupVisibility();
-    setTheme('light');
+    loadTheme();
 }

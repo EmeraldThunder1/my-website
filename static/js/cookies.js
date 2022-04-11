@@ -1,7 +1,7 @@
 // All code relate to cookies
 
 function getCookie(cname) {
-    let cookies = document.cookie.split(';');
+    let cookies = document.cookie.replace(' ', '').split(';');
     for (let cookie of cookies) {
         let cookieName = cookie.split('=')[0]
         if (cookieName == cname) {
@@ -115,6 +115,27 @@ function declineForm() {
     });
 
     document.getElementById('-consent-popup').style.display = 'none';
+}
+
+function isAllowed(cookie_name) {
+    let cookie_permissions = getCookie('consent');
+    if (cookie_permissions == null) {
+        return false;
+    }
+
+    let cookieData = fetchCookieData();
+    return cookieData.then(function (result) {
+        let cookies = result.cookies;
+
+        for(let i=0; i<cookie_permissions.length; i++) {
+            if (cookies[i].name == cookie_name) {
+                if (cookie_permissions[i] == 1) {
+                    return true;
+                }
+                return false;
+            }
+         }
+    })
 }
 
 async function fetchCookieData() {
