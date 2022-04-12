@@ -118,13 +118,13 @@ function declineForm() {
 }
 
 function isAllowed(cookie_name) {
-    let cookie_permissions = getCookie('consent');
-    if (cookie_permissions == null) {
-        return false;
-    }
-
     let cookieData = fetchCookieData();
     return cookieData.then(function (result) {
+        let cookie_permissions = getCookie('consent');
+        if (cookie_permissions == null) {
+            return false;
+        }
+        
         let cookies = result.cookies;
 
         for(let i=0; i<cookie_permissions.length; i++) {
