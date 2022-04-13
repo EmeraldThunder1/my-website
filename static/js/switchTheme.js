@@ -3,9 +3,7 @@
 function switchTheme (theme) {
     let allowed = isAllowed('theme');
     allowed.then(function (result) {
-        console.log(false)
         if (result) {
-            console.log(true)
             setCookie('theme', theme, 14);
         }
     })

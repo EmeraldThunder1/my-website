@@ -17,10 +17,21 @@
 
         <div class="text-large centre popup-margin">EmeraldThunder's Blog</div>
         <div class="centre"><img src="/static/images/logo.png/"></div>
+
+        {%for post in posts%}
         <div class="light-section centre rounded popup-margin popup-padding">
-            <span class="text-medium">Hello World</span><br>
-            <span class="">Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder Placeholder</span>
+            <span class="text-medium"><a href="post/{{post.url}}" class="no-decoration">{{post.title}}</a></span><br>
+            <span class="text-small">
+                <i class="bi bi-clock-fill"></i>
+                {%if post.read_time < 2%}
+                Less than a minute
+                {%else%}
+                {{post.read_time}} minutes
+                {%endif%}
+            </span><br>
+            <span class="">{{post.sample}}</span>
         </div>
+        {%endfor%}
 
         <script src="../static/js/switchTheme.js"></script>
         <script src="../static/js/cookies.js"></script>
