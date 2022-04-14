@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
 
 .no-style {
     list-style-type: none;
@@ -159,4 +160,34 @@
 .popup-button-margin {
     margin-left: 7px;
     margin-right: 7px;
+}
+
+.search-size {
+    width: 200px;
+    height: 30px;
+}
+
+.button-size {
+    width: 35px;
+    height: 35px;
+}
+
+.dark-link {
+    color: #88c0d0;
+}
+
+.dark-link:visited {
+    color: #81a1c1;
+}
+
+.tag-margin {
+    margin: 5px;
+}
+
+.inline {
+    display: inline;
+}
+
+.inline-block {
+    display: inline-block;
 }

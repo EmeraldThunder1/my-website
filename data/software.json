@@ -1,0 +1,16 @@
+{
+    "software": [
+        {
+            "name": "Enchanted dyes",
+            "description": "Craftable enchantments is a data pack for minecraft java edition that allows you to craft enchantments using different colours of dyes",
+            "url": "https://github.com/EmeraldThunder1/enchanted-dyes",
+            "icon": ""
+        },
+        {
+            "name": "Better tridents",
+            "description": "Better tridents is a minecraft java data pack that adds a crafting recipe for tridents and gives certain effects whilst holding a trident",
+            "url": "https://github.com/EmeraldThunder1/better-tridents",
+            "icon": ""
+        }
+    ]
+}
