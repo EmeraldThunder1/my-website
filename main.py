@@ -33,7 +33,7 @@ class Software:
         return self.name.lower().replace(" ", "-")
 
     def getRepo(self):
-        return '/'.join(self.fileUrl.split("/")[-2: -1])
+        return '/'.join(self.fileUrl.split("/")[-2:])
 
 
 blogPath = './data/posts/'
@@ -59,7 +59,6 @@ def cookies():
             cookie_string += str(
                 int(True if request.form.get(_cookie['name']) == 'on' else False))
 
-        print(cookie_string)
 
         response = make_response(render_template('index.html'))
 

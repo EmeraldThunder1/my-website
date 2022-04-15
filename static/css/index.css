@@ -233,6 +233,10 @@
     vertical-align: middle;
 }
 
+.align-top {
+    vertical-align: top;
+}
+
 .left-auto {
     margin-left: auto;
 }
@@ -259,4 +263,8 @@
 
 .code-pad {
     padding: 2px;
+}
+
+.italic {
+    font-style: italic;
 }

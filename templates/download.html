@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="/static/images/logo.png">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     </head>
-    <body class="no-pad noto-font height-100 light-colour light-background" onload="onLoad();">
+    <body class="no-pad noto-font height-100 light-colour light-background" onload="onLoad();loadStats('{{software.repo}}')">
         {%include "navbar.html"%}
         {%include "popups/noscript.html"%}
         {%include "popups/cookieConsent.html"%}
@@ -20,14 +20,14 @@
         </div>
 
         <div class="centre">
-            <img src="../{%if software.icon%}{{software.icon}}{%else%}/static/images/logo.png{%endif%}" class="img-size">
+            <img src="{%if software.icon%}{{software.icon}}{%else%}/static/images/logo.png{%endif%}" class="img-size">
         </div>
 
         <div class="centre">
             <table class="inline-block">
                 <tbody>
                     <tr>
-                        <td class="width-50">
+                        <td class="width-50 align-top">
                             <div class="popup-margin popup-padding light-section rounded">
                                 <div class="popup-margin">
                                     {{software.description}}
@@ -40,19 +40,44 @@
                                 <!--TODO: Copy to clipboard-->
                                 <div class="popup-margin">
                                     <span>Git:</span><br>
-                                    <span class="mono-font light-code code-pad rounded">$ git clone https://github.com/{{software.repo}}</span>
+                                    <span class="mono-font light-code code-pad rounded">
+                                        <span class="italic">$</span> git clone https://github.com/{{software.repo}}
+                                    </span>
                                 </div>
 
                                 <div class="popup-margin">
                                     <span>Gh:</span><br>
-                                    <span class="mono-font light-code code-pad rounded">$ gh repo clone {{software.repo}}</span>
+                                    <span class="mono-font light-code code-pad rounded">
+                                        <span class="italic">$</span> gh repo clone {{software.repo}}
+                                    </span>
                                 </div>
+                                
+                                <a href="{{software.fileUrl}}" class="no-decoration light-colour">
+                                    <div class="button-margin button-padding green rounded hover">
+                                        Download from source
+                                    </div>
+                                </a>
                             </div>
                         </td>
-                        <td class="width-50">
+                        <td class="width-50 align-top">
                             <div class="popup-margin popup-padding light-section rounded">
                                 <div class="text-medium popup-margin">
                                     Download information
+                                </div>
+                                <div class="popup-margin">
+                                    Version number: <span id="version">Loading...</span>
+                                </div>
+                                <div class="popup-margin">
+                                    File size: <span id="size">Loading...</span>
+                                </div>
+                                <div class="stars">
+                                    Stars: <span id="stars">Loading...</span>
+                                </div>
+                                <div class="popup-margin">
+                                    Watchers: <span id="watchers">Loading...</span>
+                                </div>
+                                <div class="popup-margin">
+                                    Forks: <span id="forks">Loading...</span>
                                 </div>
                             </div>
                         </td>
@@ -64,5 +89,6 @@
         <script src="/static/js/index.js"></script>
         <script src="/static/js/cookies.js"></script>
         <script src="/static/js/switchTheme.js"></script>
+        <script src="/static/js/loadStats.js"></script>
     </body>
 </html>
