@@ -1,10 +1,9 @@
-from flask import Flask, render_template, make_response, request, url_for, jsonify
+from flask import Flask, render_template, make_response, request, url_for, jsonify, abort
 from datetime import datetime, timedelta
 import json
 import os
 import markdown
 import re
-import requests
 
 app = Flask(__name__)
 
@@ -28,7 +27,7 @@ class Software:
         self.description = description
         self.url = self.getUrl()
         self.icon = icon
-        self.repoName = self.getRepo()
+        self.repo = self.getRepo()
 
     def getUrl(self):
         return self.name.lower().replace(" ", "-")
@@ -44,6 +43,9 @@ blogPath = './data/posts/'
 def index():
     return render_template('index.html')
 
+@app.errorhandler(404)
+def not_found(e):
+    return render_template('404.html')
 
 @app.route('/cookies/', methods=['GET', 'POST'])
 def cookies():
@@ -175,7 +177,7 @@ def post(post_name):
             break
 
     if render_post == None:
-        return '404 this is a placeholder'
+        abort(404)
 
     return render_template('post.html', post=render_post)
 
@@ -215,7 +217,7 @@ def download(download_name):
             break
 
     if download == None:
-        return '404 this is a placeholder'
+        abort(404)
 
     return render_template('download.html', software=download)
 

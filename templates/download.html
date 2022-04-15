@@ -6,8 +6,8 @@
         <meta name="description" content="{{software.name}} - {{software.description}}">
         <title>{{software.name}} - EmeraldThunder</title>
 
-        <link rel="stylesheet" href="../static/css/index.css" type="text/css">
-        <link rel="shortcut icon" href="../static/images/logo.png">
+        <link rel="stylesheet" href="/static/css/index.css" type="text/css">
+        <link rel="shortcut icon" href="/static/images/logo.png">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     </head>
     <body class="no-pad noto-font height-100 light-colour light-background" onload="onLoad();">
@@ -15,12 +15,54 @@
         {%include "popups/noscript.html"%}
         {%include "popups/cookieConsent.html"%}
 
-        <div class="large-text popup-margin">
+        <div class="centre text-large popup-margin">
             {{software.name}}
         </div>
 
-        <script src="../static/js/index.js"></script>
-        <script src="../static/js/cookies.js"></script>
-        <script src="../static/js/switchTheme.js"></script>
+        <div class="centre">
+            <img src="../{%if software.icon%}{{software.icon}}{%else%}/static/images/logo.png{%endif%}" class="img-size">
+        </div>
+
+        <div class="centre">
+            <table class="inline-block">
+                <tbody>
+                    <tr>
+                        <td class="width-50">
+                            <div class="popup-margin popup-padding light-section rounded">
+                                <div class="popup-margin">
+                                    {{software.description}}
+                                </div>
+
+                                <div class="popup-margin text-medium">
+                                    Download
+                                </div>
+
+                                <!--TODO: Copy to clipboard-->
+                                <div class="popup-margin">
+                                    <span>Git:</span><br>
+                                    <span class="mono-font light-code code-pad rounded">$ git clone https://github.com/{{software.repo}}</span>
+                                </div>
+
+                                <div class="popup-margin">
+                                    <span>Gh:</span><br>
+                                    <span class="mono-font light-code code-pad rounded">$ gh repo clone {{software.repo}}</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="width-50">
+                            <div class="popup-margin popup-padding light-section rounded">
+                                <div class="text-medium popup-margin">
+                                    Download information
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script src="/static/js/index.js"></script>
+        <script src="/static/js/cookies.js"></script>
+        <script src="/static/js/switchTheme.js"></script>
     </body>
 </html>

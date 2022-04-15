@@ -6,8 +6,8 @@
         <meta name="description" content="EmeraldThunder's website, download my various pieces of software">
         <title>Software - EmeraldThunder</title>
 
-        <link rel="stylesheet" href="../static/css/index.css" type="text/css">
-        <link rel="shortcut icon" href="../static/images/logo.png">
+        <link rel="stylesheet" href="/static/css/index.css" type="text/css">
+        <link rel="shortcut icon" href="/static/images/logo.png">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     </head>
     <body class="no-pad noto-font height-100 light-colour light-background" onload="onLoad();">
@@ -31,13 +31,18 @@
             </form>
         </div>
 
+        {%if software|length == 0%}
+        <div class="light-section centre rounded popup-margin popup-padding">
+            No software found.
+        </div>
+        {%endif%}
         {%for download in software%}
         <a href="{{download.url}}" class="light-colour">
-            <div class="centre nav-pad rounded light-section popup-margin popup-padding">
+            <div class="centre nav-pad rounded light-section popup-margin popup-padding no-select light-software">
                 <table class="inline-block">
                     <tr>
                         <td>
-                           <img src="{%if download.icon%}{{download.icon}}{%else%}../static/images/logo.png{%endif%}"> 
+                           <img src="{%if download.icon%}{{download.icon}}{%else%}/static/images/logo.png{%endif%}" class="img-size"> 
                         </td>
                         <td>
                             <span class="text-medium">
@@ -54,8 +59,8 @@
         {%endfor%}
         
 
-        <script src="../static/js/index.js"></script>
-        <script src="../static/js/cookies.js"></script>
-        <script src="../static/js/switchTheme.js"></script>
+        <script src="/static/js/index.js"></script>
+        <script src="/static/js/cookies.js"></script>
+        <script src="/static/js/switchTheme.js"></script>
     </body>
 </html>

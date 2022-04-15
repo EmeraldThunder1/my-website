@@ -4,7 +4,7 @@
             "name": "Enchanted dyes",
             "description": "Craftable enchantments is a data pack for minecraft java edition that allows you to craft enchantments using different colours of dyes",
             "url": "https://github.com/EmeraldThunder1/enchanted-dyes",
-            "icon": ""
+            "icon": "../static/images/icons/enchanted-dyes.png"
         },
         {
             "name": "Better tridents",

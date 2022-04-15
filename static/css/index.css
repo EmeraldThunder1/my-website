@@ -191,3 +191,72 @@
 .inline-block {
     display: inline-block;
 }
+
+.light-software:hover {
+    background-color: #d0d6e1;
+}
+
+.dark-software:hover {
+    background-color: #33373e;
+}
+
+.img-size {
+    width: 100px;
+    height: 102px;
+}
+
+.table {
+    display: table;
+}
+
+.table-cell {
+    display: table-cell;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.top-0 {
+    top: 0;
+}
+
+.left-0 {
+    left: 0;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.align-middle {
+    vertical-align: middle;
+}
+
+.left-auto {
+    margin-left: auto;
+}
+
+.right-auto {
+    margin-right: auto;
+}
+
+.width-50 {
+    width: 50%;
+}
+
+.mono-font {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.light-code {
+    background-color: #d0d6e1;
+}
+
+.dark-code {
+    background-color: #33373e;
+}
+
+.code-pad {
+    padding: 2px;
+}
