@@ -63,8 +63,9 @@ def cookies():
             cookie_string += str(
                 int(True if request.form.get(_cookie['name']) == 'on' else False))
 
-
-        response = make_response(render_template('index.html'))
+        latestPost = sortPosts(getPosts())[0]
+        latestSoftware = getSoftware()[-5:]
+        response = make_response(render_template('index.html', post=latestPost, software=latestSoftware))
 
         if cookie_string[0] == '1':
             response.set_cookie('consent', cookie_string,
