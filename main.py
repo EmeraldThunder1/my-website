@@ -28,6 +28,7 @@ class Software:
         self.url = self.getUrl()
         self.icon = icon
         self.repo = self.getRepo()
+        self.summary = description[:75] + "..."
 
     def getUrl(self):
         return self.name.lower().replace(" ", "-")
@@ -41,7 +42,10 @@ blogPath = './data/posts/'
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    latestPost = sortPosts(getPosts())[0]
+    latestSoftware = getSoftware()[-5:]
+
+    return render_template('index.html', post=latestPost, software=latestSoftware)
 
 @app.errorhandler(404)
 def not_found(e):
@@ -135,6 +139,25 @@ def getPosts():
 
     return posts
 
+def sortPosts(posts):
+    while True:
+        swapped = False
+        i = 0
+        while i < len(posts) - 1:
+            if posts[i].date < posts[i + 1].date:
+                posts[i], posts[i + 1] = posts[i + 1], posts[i]
+                swapped = True
+
+            i += 1
+
+        if not swapped:
+            break
+
+    return posts
+
+def getLatestSoftware():
+    pass
+
 
 @app.route('/blog/', methods=['GET', 'POST'])
 def blog():
@@ -219,6 +242,11 @@ def download(download_name):
         abort(404)
 
     return render_template('download.html', software=download)
+
+@app.route('/api/video/')
+def video_api():
+    pass
+
 
 
 app.run('localhost')

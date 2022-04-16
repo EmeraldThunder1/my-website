@@ -15,6 +15,74 @@
         {%include "popups/noscript.html"%}
         {%include "popups/cookieConsent.html"%}
 
+        <div class="centre text-large popup-margin">
+            EmeraldThunder
+        </div>
+        <div class="centre popup-margin">
+            <img src="/static/images/logo.png">
+        </div>
+        <div class="centre popup-margin popup-padding light-section rounded">
+            Hello, I'm EmeraldThunder and I'm a software developer from the UK and I can code in Python, HTML, JS, and Lua.
+            I'm very active on the scratch forums and you can find me there on the <a href="https://scratch.mit.edu/users/-EmeraldThunder-" class="no-decoration dark-link" target="_blank">-EmeraldThunder- account</a>.
+        </div>
+
+        <div class="centre">
+            <table class="inline-block">
+                <tbody>
+                    <td class="align-top width-60">
+                        <div class="popup-margin light-section rounded popup-padding">
+                            <div class="text-medium popup-margin">
+                                Latest software
+                            </div>
+                            {%for download in software%}
+                            <a href="{{download.url}}" class="no-decoration light-colour">
+                                <div class="popup-margin popup-padding rounded light-software">
+                                    <table class="inline-block">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <img src="{%if download.icon%}{{download.icon}}{%else%}/static/images/logo.png{%endif%}" class="half-img">
+                                                </td>
+                                                <td>
+                                                    {{download.name}}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <br>
+                                    {{download.summary}}
+                                </div>
+                            </a>
+                            {%endfor%}
+                        </div>
+                    </td>
+                    <td class="align-top width-40">
+                        <div>
+                            <a href="blog/post/{{post.url}}" class="no-decoration light-colour">
+                                <div class="popup-margin popup-margin light-section rounded popup-padding light-software">
+                                    <div class="text-medium popup-margin">
+                                        Latest blog post
+                                    </div>
+                                    <div class="popup-margin">
+                                        {{post.title}} - {{post.date.day}}/{{post.date.month}}/{{post.date.year}}
+                                    </div>
+                                    <div>
+                                        {{post.sample}}
+                                    </div>
+                                </div>
+                            </a>
+                            <div id="youtube-integeration" class="popup-margin light-section rounded popup-padding">
+                                <div class="text-medium popup-margin">
+                                    Latest YouTube video
+                                </div>
+                                Coming soon...
+                            </div>
+                        </div>
+                    </td>
+                </tbody>
+            </table>
+        </div>
+
         <!--TODO: Implement sections-->
         <script src="/static/js/switchTheme.js"></script>
         <script src="/static/js/cookies.js"></script>

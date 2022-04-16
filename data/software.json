@@ -2,7 +2,7 @@
     "software": [
         {
             "name": "Enchanted dyes",
-            "description": "Craftable enchantments is a data pack for minecraft java edition that allows you to craft enchantments using different colours of dyes",
+            "description": "Enchanted dyes is a data pack for minecraft java edition that allows you to craft enchantments using different colours of dyes. Simply place the dye in the crafting grid with the item you would like to enchant. Press download from source for a table of enchantments",
             "url": "https://github.com/EmeraldThunder1/enchanted-dyes",
             "icon": "/static/images/icons/enchanted-dyes.png"
         },
