@@ -250,4 +250,4 @@ def video_api():
 
 
 
-app.run('localhost')
+app.run('0.0.0.0')
